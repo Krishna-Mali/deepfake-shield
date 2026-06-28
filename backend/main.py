@@ -5,9 +5,7 @@ import shutil
 
 from detector import predict_image
 
-# ===============================
 # Constants
-# ===============================
 
 API_TITLE = "DeepFake Shield API"
 
@@ -17,9 +15,7 @@ ALLOWED_EXTENSIONS = [".jpg", ".jpeg", ".png"]
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# ===============================
 # FastAPI App
-# ===============================
 
 app = FastAPI(title=API_TITLE)
 
@@ -31,9 +27,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ===============================
 # Home Route
-# ===============================
 
 @app.get("/")
 def home():
@@ -42,9 +36,7 @@ def home():
         "message": "DeepFake Shield API is running."
     }
 
-# ===============================
 # Image Analysis API
-# ===============================
 
 @app.post("/analyze-image")
 async def analyze_image(file: UploadFile = File(...)):

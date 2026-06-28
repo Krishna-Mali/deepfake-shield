@@ -3,17 +3,13 @@ import cv2
 import numpy as np
 import tensorflow as tf
 
-# ===============================
 # Constants
-# ===============================
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "models", "deepfake_model.keras")
 IMG_SIZE = 224
 
-# ===============================
 # Load AI Model
-# ===============================
 
 print("Loading AI Model...")
 
@@ -21,9 +17,7 @@ model = tf.keras.models.load_model(MODEL_PATH)
 
 print("Model Loaded Successfully!")
 
-# ===============================
 # Prediction Function
-# ===============================
 
 def predict_image(image_path):
     """

@@ -1,7 +1,6 @@
-// ===============================
+
 // DeepFake Shield - app.js
 // Frontend ↔ FastAPI Connection
-// ===============================
 
 const fileInput = document.getElementById("fileInput");
 const uploadBtn = document.getElementById("uploadBtn");
@@ -48,8 +47,8 @@ uploadBtn.addEventListener("click", async () => {
         return;
     }
     loading.style.display = "block";
-uploadBtn.disabled = true;
-uploadBtn.innerText = "Analyzing...";
+    uploadBtn.disabled = true;
+    uploadBtn.innerText = "Analyzing...";
 
     prediction.innerText = "Analyzing...";
     confidence.innerText = "0%";
@@ -57,7 +56,7 @@ uploadBtn.innerText = "Analyzing...";
 
     statusBadge.innerText = "Processing";
     statusBadge.className = "status neutral";
-    statusText.innerText="AI Model Is Analyzing The Image...";
+    statusText.innerText = "AI Model Is Analyzing The Image...";
 
     analysisList.innerHTML =
         "<li>Running AI Model...</li>";
@@ -78,7 +77,7 @@ uploadBtn.innerText = "Analyzing...";
         if (!response.ok) {
             throw new Error("Server Error");
         }
-      const data = await response.json();
+        const data = await response.json();
 
 
         prediction.innerText = data.prediction;
@@ -88,11 +87,11 @@ uploadBtn.innerText = "Analyzing...";
 
         progressBar.style.width =
             data.confidence + "%";
-        
+
         saveHistory(
             prediction.innerText,
             confidence.innerText
-);
+        );
 
         if (data.prediction === "Real") {
 
@@ -121,9 +120,9 @@ uploadBtn.innerText = "Analyzing...";
             `;
 
         }
-loading.style.display = "none";
-uploadBtn.disabled = false;
-uploadBtn.innerText = "Analyze Image";
+        loading.style.display = "none";
+        uploadBtn.disabled = false;
+        uploadBtn.innerText = "Analyze Image";
     } catch (err) {
 
         prediction.innerText = "Error";
@@ -132,13 +131,13 @@ uploadBtn.innerText = "Analyze Image";
         statusBadge.className = "status fake";
         statusText.innerText = "Analysis failed.";
 
-       analysisList.innerHTML = `
+        analysisList.innerHTML = `
 <li>Unable to analyze image.</li>
 <li>Please try again.</li>
 `;
-    loading.style.display = "none";
-uploadBtn.disabled = false;
-uploadBtn.innerText = "Analyze Image";
+        loading.style.display = "none";
+        uploadBtn.disabled = false;
+        uploadBtn.innerText = "Analyze Image";
 
     }
 
@@ -158,11 +157,9 @@ learnBtn.addEventListener("click", () => {
     document.getElementById("about").scrollIntoView({
         behavior: "smooth"
     });
-  });
+});
 
-// ===============================
 // PDF REPORT DOWNLOAD
-// ===============================
 
 const downloadReport = document.getElementById("downloadReport");
 
@@ -174,8 +171,8 @@ downloadReport.addEventListener("click", () => {
 
     const file =
         fileInput.files[0]
-        ? fileInput.files[0].name
-        : "No File";
+            ? fileInput.files[0].name
+            : "No File";
 
     const date =
         new Date().toLocaleString();
@@ -210,9 +207,7 @@ downloadReport.addEventListener("click", () => {
 
 });
 
-// ===============================
 // SCAN HISTORY
-// ===============================
 
 function saveHistory(predictionText, confidenceText) {
 
@@ -264,9 +259,7 @@ function loadHistory() {
 
 loadHistory();
 
-// ===============================
 // DRAG & DROP UPLOAD
-// ===============================
 
 dropArea.addEventListener("dragover", (e) => {
     e.preventDefault();

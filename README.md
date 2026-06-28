@@ -1,4 +1,4 @@
-# 🛡️ DeepFake Shield
+# DeepFake Shield
 
 An AI-powered DeepFake Image Detection System built using **FastAPI**, **TensorFlow**, **MobileNetV2**, **HTML**, **CSS**, and **JavaScript**.
 
@@ -76,7 +76,7 @@ deepfake-shield/
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/your-username/deepfake-shield.git
+git clone https://github.com/Krishna-Mali/deepfake-shield.git
 ```
 
 ---
@@ -173,6 +173,13 @@ The application can generate a downloadable PDF report containing
 - AI Analysis
 
 ---
+
+## Note
+
+- This project is developed for educational purposes.
+- The trained AI model (`deepfake_model.keras`) is included in the repository.
+- The training dataset is **not included** in this repository because of its large size. Add your own dataset in `backend/models/rvf10k/` before retraining the model.
+
 
 ## Developed By
 

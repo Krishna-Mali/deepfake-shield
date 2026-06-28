@@ -13,9 +13,7 @@ from tensorflow.keras.callbacks import (
     EarlyStopping
 )
 
-# ===============================
 # Paths
-# ===============================
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -31,18 +29,14 @@ MODEL_SAVE_PATH = os.path.join(
     "deepfake_model.keras"
 )
 
-# ===============================
 # Configuration
-# ===============================
 
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
 EPOCHS = 25
 LEARNING_RATE = 1e-4
 
-# ===============================
 # Data Generators
-# ===============================
 
 train_datagen = ImageDataGenerator(
     rescale=1.0 / 255,
@@ -73,9 +67,7 @@ val_generator = valid_datagen.flow_from_directory(
 
 print(f"Classes: {train_generator.class_indices}")
 
-# ===============================
 # MobileNetV2 Model
-# ===============================
 
 base_model = MobileNetV2(
     weights="imagenet",
@@ -97,9 +89,7 @@ model = Sequential([
     Dense(1, activation="sigmoid")
 ])
 
-# ===============================
 # Compile Model
-# ===============================
 
 model.compile(
     optimizer=tf.keras.optimizers.Adam(
@@ -109,9 +99,7 @@ model.compile(
     metrics=["accuracy"]
 )
 
-# ===============================
 # Callbacks
-# ===============================
 
 checkpoint = ModelCheckpoint(
     MODEL_SAVE_PATH,
@@ -129,9 +117,7 @@ earlystop = EarlyStopping(
     verbose=1
 )
 
-# ===============================
 # Train Model
-# ===============================
 
 model.summary()
 
@@ -147,9 +133,7 @@ history = model.fit(
     ]
 )
 
-# ===============================
 # Final Evaluation
-# ===============================
 
 loss, accuracy = model.evaluate(
     val_generator,
