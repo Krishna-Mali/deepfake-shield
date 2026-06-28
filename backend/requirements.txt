@@ -17,3 +17,4 @@ scikit-learn
 matplotlib
 
 python-dotenv
+python-3.11.9
