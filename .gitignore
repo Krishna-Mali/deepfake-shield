@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Environment Variables
+.env
+
+# Upload Folder
+backend/uploads/
+
+# Dataset (Do Not Upload)
+backend/models/archive/
+backend/models/rvf10k/
+backend/models/train.csv
+backend/models/valid.csv
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>DeepFake Shield | AI Detection Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- Background Animation -->
+
+<div class="bg-animation">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <span>DeepFake Shield</span>
+
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="#home">Home</a></li>
+
+        <li><a href="#detect">Detection</a></li>
+
+        <li><a href="#features">Features</a></li>
+
+        <li><a href="#about">About</a></li>
+
+    </ul>
+
+    <a href="#detect" class="nav-btn">
+
+        Start Scan
+
+    </a>
+
+</nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-left">
+
+<span class="hero-tag">
+
+AI Powered Deepfake Detection
+
+</span>
+
+<h1>
+
+Detect
+
+<span>Fake Images</span>
+
+Within Seconds
+
+</h1>
+
+<p>
+
+Upload an image and let our AI model analyze
+whether it is authentic or AI manipulated.
+
+</p>
+
+<div class="hero-buttons">
+
+<button id="startBtn" class="primary-btn">
+
+Start Detection
+
+</button>
+
+<button id="learnBtn" class="secondary-btn">
+
+Learn More
+
+</button>
+
+</div>
+
+<div class="hero-stats">
+
+<div>
+
+<h2>98%</h2>
+
+<p>Accuracy</p>
+
+</div>
+
+<div>
+
+<h2>1500+</h2>
+
+<p>Images Checked</p>
+
+</div>
+
+<div>
+
+<h2>24/7</h2>
+
+<p>AI Monitoring</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="glass-card">
+
+<i class="fa-solid fa-user-shield"></i>
+
+<h3>Secure AI Analysis</h3>
+
+<p>
+
+Advanced Deep Learning verifies image authenticity.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= UPLOAD ================= -->
+
+<section class="upload-section"
+         id="detect">
+
+<h2>
+
+Upload Image
+
+</h2>
+
+<p class="section-text">
+
+Supported Formats :
+JPG, PNG, JPEG
+
+</p>
+
+<div class="upload-card" id="dropArea">
+
+<div class="upload-icon">
+
+<i class="fa-solid fa-cloud-arrow-up"></i>
+
+</div>
+
+<input
+type="file"
+id="fileInput"
+accept="image/*"
+hidden>
+
+<div class="file-select">
+<label for="fileInput" class="upload-btn">
+    <i class="fa-solid fa-image"></i>
+    Choose Image
+</label>
+
+<span id="fileName">
+    No image selected
+</span>
+</div>
+
+
+<button id="uploadBtn" type="button">
+
+Analyze Image
+
+</button>
+
+<div id="loading" class="loading" style="display:none;">
+    <i class="fa-solid fa-spinner fa-spin"></i>
+    <p>Analyzing Image...</p>
+</div>
+
+<div class="preview-box">
+
+<img
+id="previewImage"
+alt="Preview"
+loading="lazy"
+style="display:none;">
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= RESULT SECTION ================= -->
+
+<section class="result-section">
+
+<h2>
+
+Detection Result
+
+</h2>
+
+<div class="result-grid">
+
+<div class="result-card">
+
+<h3>Prediction</h3>
+
+<h1 id="prediction">
+
+Waiting...
+
+</h1>
+
+<p>
+
+AI classification result
+
+</p>
+
+</div>
+
+<div class="result-card">
+
+<h3>Confidence</h3>
+
+<div class="progress-bar">
+
+<div
+id="progressBar"
+class="progress-fill">
+
+</div>
+
+</div>
+
+<h2 id="confidence">
+
+0%
+
+</h2>
+
+</div>
+
+<div class="result-card">
+
+<h3>Status</h3>
+
+<span
+id="statusBadge"
+class="status neutral">
+
+Not Analyzed
+
+</span>
+
+<p id="statusText">
+
+Waiting for image upload
+
+</p>
+
+</div>
+
+</div>
+
+<div class="analysis-card">
+
+<h3>
+
+AI Analysis
+
+</h3>
+
+<ul id="analysisList">
+
+<li>Select an image.</li>
+
+<li>Click <b>Analyze Image</b>.</li>
+
+<li>Prediction will appear here.</li>
+
+<li>Confidence score will be displayed.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+
+<section
+id="features"
+class="features">
+
+<h2>
+
+Platform Features
+
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+
+<i class="fa-solid fa-brain"></i>
+
+<h3>
+
+Deep Learning
+
+</h3>
+
+<p>
+
+Powered by TensorFlow and MobileNetV2.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h3>
+
+Fast Detection
+
+</h3>
+
+<p>
+
+Image analysis completes within seconds.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<i class="fa-solid fa-lock"></i>
+
+<h3>
+
+Secure Upload
+
+</h3>
+
+<p>
+
+Uploaded images remain private.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<h3>
+
+Confidence Score
+
+</h3>
+
+<p>
+
+Real-time AI confidence visualization.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="about">
+
+<div class="about-content">
+
+<h2>
+
+About DeepFake Shield
+
+</h2>
+
+<p>
+
+DeepFake Shield is an AI-powered platform designed to
+detect manipulated facial images using Deep Learning.
+The system analyzes uploaded images and provides a
+prediction, confidence score, and authenticity status
+through an easy-to-use interface.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= REPORT ================= -->
+<section class="report-section">
+
+    <div class="report-box">
+
+        <h2>Download AI Report</h2>
+
+        <p>Generate a PDF report of the latest scan.</p>
+
+        <button id="downloadReport" class="primary-btn">
+            <i class="fa-solid fa-file-pdf"></i>
+            Download Report
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================= SCAN HISTORY ================= -->
+
+<section class="history-section">
+
+    <h2>Recent Scans</h2>
+
+    <div id="historyList" class="history-list">
+
+        <p class="empty-history">
+            No scans available.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-content">
+
+<h2>
+
+DeepFake Shield
+
+</h2>
+
+<p>
+
+AI Powered Image Authenticity Verification Platform
+
+</p>
+
+<div class="footer-icons">
+
+<i class="fab fa-github"></i>
+
+<i class="fab fa-linkedin"></i>
+
+<i class="fab fa-x-twitter"></i>
+
+</div>
+
+<p class="copyright">
+
+© 2026 DeepFake Shield. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
